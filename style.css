@@ -1,0 +1,835 @@
+
+/* Style Général de la page*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@font-face {
+    font-family: 'Arlon SemiBold DEMO';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Arlon SemiBold DEMO'), url('ArlonSemiBold-DEMO.woff') format('woff');
+    }
+html, body {
+width: 100%;
+height: 100%;
+margin: 0;
+font-family: 'Poppins';
+
+}
+/*—> Je mets en début de CSS le style que je veux pour l’écriture et télécharge les éléments nécessaires pour les styles de font family.
+
+—> Ie définis également le width et le height de mon html ainsi qu’un margin zero pour être sûre que la mise en page se mette comme je veux.
+
+/* Nav Bar */
+
+/*Dans mon html j’ai créé une section #Nav_bar dans laquelle j’ai composé plusieurs div afin de pouvoir faire la mise en page de celle ci. 
+
+Il y’a la div burger et la div menu . */
+
+#Nav_bar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+width:95%;
+}
+/*—> Ici j’ai posé la nav_bar en display flex et Space between afin d’éloigner au maximum les deux classes dans ma section.
+
+—> Le align items center permet aux enfants ( burger et menu ) de bien se positionner dans la section parent qui est la nav_bar.*/
+#Burger {
+width:30px;
+height:30px;
+}
+/*—> Ici , j’ai d’abord défini la hauteur et largeur que je voulais pour mon id Burger. */
+.burger_line {
+width: 30px;
+height: 3px;
+background-color: #333;
+margin: 5px;
+transition: all 0.3s ease;
+}
+/*—> Ici j’ai donné une taille et une height à ma classe burger qui va définir les petites lignes de ma nav bar  ( le height est de 3px afin de donner cette forme de ligne remplissant le background.*/
+#Burger.active .burger_line:nth-child(1){
+transform: rotate(45deg) translate(0,-3px);
+transform-origin: 0;
+}
+/*—> ici grâce à la fonction transform je vais pouvoir faire rotate ma première ligne de 45deg. Le translate va aider l’élément à se déplacer dans l’espace , ici en l’occurrence de -3 pixels verticalement  ( le -3 signifie qu’il va être déplacé vers le haut grâce à la valeur négative du chiffre) */
+
+#Burger.active .burger_line:nth-child(2){
+background-color: transparent;
+}
+/*—> ici grâce à la propriété background color est mise en transparent afin de faire disparaître la ligne du milieu car nous n’avons besoin que de deux lignes pour faire la crois du menu.*/
+
+#Burger.active .burger_line:nth-child(3){
+transform: rotate(-45deg) translate(0,3px);
+transform-origin: 0;
+}
+/*—> ici grâce à la fonction transform je vais pouvoir faire rotate ma première ligne de 45deg. Le translate va aider l’élément à se déplacer dans l’espace , ici en l’occurrence de 3 pixels verticalement  ( le 3 signifie qu’il va être déplacé vers le bas grâce à la valeur positive  du chiffre) */
+
+#Menu {
+display: none;
+list-style: none;
+padding: 0;
+margin: 0;
+position: relative;
+top:0;
+right:30px;
+gap:2em;
+bottom: 0px;
+font-size: 10px;
+}
+/*—> Ici j’ai mis un display none pour faire disparaitre le menu.*/
+#Menu.active {
+display: flex;
+flex-direction: row-reverse;
+}
+/*—> Une fois fois appuyer dessus le menu devient visible. */
+
+#Menu.active li {
+display: flex;   
+width:40px;
+justify-content: center;
+color: #fff;
+
+}
+/*—> Propriétés du menu.*/
+
+/* Header */
+
+header {
+background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0px, rgba(255, 255, 255, 1)),
+url("./images/header.jpg");
+background-size: 90%;
+background-position-y: -10em;
+background-attachment: fixed;
+display: flex;
+flex-direction: column;
+width: 100%;
+align-items: center;
+height: 100vh;
+font-weight: 900;
+}
+/*—> Background de l’image, le linear background permet de fondre l’image dans le reste de la feuille.*/
+.header_title {
+display: flex;
+flex-direction: column;
+width: 60%;
+align-items: flex-start;
+}
+/*—> Propriétés du header. */
+
+.header_title h1:nth-child(1) {
+opacity: 45%;
+font-size: 3.5rem;
+margin-bottom: 20px;
+}
+/*—> Propriétés du titre en ne visant que le premier enfant.*/
+.header_title h1:nth-child(2) {
+opacity: 75%;
+font-size: 3rem;
+margin-bottom: 20px;
+}
+/*—> Propriétés du titre en ne visant que le deuxième enfant.*/
+.header_title h2 {
+opacity: 60%;
+font-size: 1.5rem;
+margin-bottom: 40px;
+font-weight:200;
+}
+/*—> Propriétés du h2.*/
+.header_button {
+background-color: #695AA6;
+color: #fff;
+border-radius: 30px;
+cursor: pointer;
+transition: background-color 0.3s;
+border: none;
+padding:7px 14px;
+}
+
+.header_button:hover {
+background-color: #695AA6;
+}
+/* —> Propriétés du bouton et fonction hover pour changer la couleur quand on passe dessus. */
+.h4 {
+    color:black;
+    font-style: normal;
+}
+#Aboutme h1, #Services h1, #Porfolio h1, .Contact h1, #Blog h1, #Testimonial h1{
+    color:#695AA6;
+}
+/* —> Propriétés pour les fonts des h1 visés. */
+
+/* Body Aboutme */
+
+#Aboutme {
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+height: 100vh;
+width:100%;
+
+}
+/* —>Propriétés de la section Aboutme. */
+.aboutme_button {
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: 0.5px solid #695AA6(213, 98, 213);
+    padding:7px 14px;
+    color:#695AA6;
+}
+.aboutme_button:hover {
+    background-color: #b6a8ec9b;
+}
+/* —> Propriétés du bouton et hover avec un background de couleur très peu opaque dessus. */
+
+
+.aboutme_text {
+flex: 1;
+}
+/* —> Taille donnée au texte. */
+
+.aboutme_text p{
+    text-align: justify;
+    height: fit-content;
+    margin-right: 10px;
+}
+/* —> Propriétés visant le p de about me, le justify permet au texte de se mettre en page en s’alignant. */
+.aboutme_text h4, .aboutme_text h1 {
+    color:#695AA6;
+}
+/* —> Propriétés couleur font. */
+.man_image {
+    width: 40%;
+}
+/* —> Taille image pour qu’elle fasses tout le temps 40% du width. */
+
+
+/* Services */
+
+#Services {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100vh;
+width:100%;
+
+}
+/* —> Propriétés display section. */
+
+.services_options img {
+width: 40px;
+height: 40px;
+margin-top: 20px;
+transition: all 0.3s ease;
+}
+/* —> Propriétés img et le fonction transition ease permet de déterminer la durée de la transition, ease permet de ralentir la transition de manière plus naturelle */
+
+.services_options ul {
+display: flex;
+flex-direction: column;
+list-style: none;
+margin: 0;
+padding: 0;
+}
+/* —>Propriétés ul de la section */
+
+.services_options li {
+border: 1px solid #695AA6;
+overflow: hidden;
+padding: 20px;
+margin: 10px;
+width: 150px;
+height: 150px;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+position: relative;
+transition: all 0.3s ease;
+}
+/* —> Propriétés img et le fonction transition ease permet de déterminer la durée de la transition, ease permet de ralentir la transition de manière plus naturelle. la position relative permet l’effet de transition. */
+
+
+.services_options .img_option {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+/* —> Propriétés img et le fonction transition ease permet de déterminer la durée de la transition, ease permet de ralentir la transition de manière plus naturelle */
+
+.floating_text {
+font-size: 14px;
+position: absolute;
+top: 100%;
+left: 0;
+right: 0;
+padding: 20px;
+transition: all 0.3s ease;
+}
+/* —> Le top 100% permet de cacher le floating text grâce aux positions données plus haut car quand elle remonte elle obtient la position absolue. */
+
+
+.services_options li:hover .img_option {
+transform: translateY(-100%);
+opacity: 0;
+}
+/* —> le -100% fait remonter au maximum le img_option */
+
+.services_options li:hover .floating_text {
+top: 0;
+}
+/* -→ le top 0 permet au hover de remonter tout en haut de sa position le floating text en position absolue. */
+
+
+/* Body Portfolio */
+
+#Portfolio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 15px;
+    height:150vh;
+}
+/* —> Propriétés de la Section portfolio. */
+
+
+.portfolio_pictures img {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    transition: 0.3s ease;
+}
+
+/* —> dimensions de l’image et transition pour l’effet hover. */
+
+.portfolio_pictures img:hover {
+    opacity: 1;
+    
+}
+
+/* -→ effet d’opacité quand on hover avec la souris. */
+
+.portfolio_pictures ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+/*> aligne les photos entre elle. */
+
+#Portfolio h1 {
+    color: #695AA6;
+}
+/* —> propriété couleur h1. */
+
+
+/* Pricing */
+
+
+#Pricing {
+padding: 20px 20px;
+padding-bottom: 50px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+#Pricing h1, #Pricing h2 {
+    color: #695AA6;
+}
+
+
+.pricing_options1, .pricing_options2, .pricing_options3 {
+border: 1px solid #0000005d;
+display: flex;
+flex-direction:  column;
+align-items: center; 
+
+}
+/* —> Propriétés de style et de mise en page de la section pricing. */
+
+.pricing_options img {
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+}
+.pricing_options_img {
+    width: 60px;
+    height: 60px;
+    
+}
+/* —> dimensions et positions des img dans la section parent. */
+
+
+.pricing_options ul{
+list-style: none;
+text-align: center;
+justify-content:center;
+margin:0;
+padding: 0 10px;
+color:#333;
+}
+/* —> positions des ul dans la section parent. */
+
+#Pricing button {
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: 0.5px solid #695AA6(213, 98, 213);
+    padding:7px 14px;
+    margin-bottom: 10px;
+    color:#695AA6;
+}
+/* —> propriétés du bouton. */
+
+/* Workwithme */
+
+
+#Workwithme {
+display: flex;
+flex-direction: row;
+background-color: #6b5de4;
+padding: 20px 15px;
+color: white;
+justify-content: space-around;
+}
+
+.workwithme-content {
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+justify-items: center;
+}
+
+.workwithme-text {
+text-align: center;
+margin-bottom: 5px;
+}
+
+.workwithme-text h4 {
+    font-size: 12px;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+.workwithme-text h1 {
+    font-size: 10px;
+    font-weight: 200px; 
+}
+
+    /* —> propriétés de style et de mise en page de la section, le space between permet de séparer de manière plus flagrante les deux enfants. */
+    
+.workwithme_button {
+display: inline-block;
+background-color: transparent;
+color: white;
+border: 2px solid white;
+padding: 10px 20px;
+border-radius: 25px;
+font-size: 16px;
+font-weight: bold;
+text-align: center;
+cursor: pointer;
+transition: background-color 0.3s, color 0.3s;
+margin-top: 20px;
+}
+/* —> dimensions et style du bouton dans la section parent. */
+
+.workwithme_button:hover {
+background-color: white;
+color: #6b5de4;
+}
+
+/* —> avec le hover le bouton devient blanc. */
+
+
+/* Testimonial section */
+#Testimonial {
+padding: 20px 15px;
+background-color: #f8f8f8;
+}
+
+.testimonial {
+display: flex;
+flex-direction: column;
+max-width: 800px;
+margin: 0 auto;
+gap:3em;
+}
+/* —> Propriétés style et placement de la section  */
+
+.testimonial_container1,
+.testimonial_container2 {
+background: white;
+border-radius: 10px;
+padding: 20px;
+box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+text-align: center;
+}
+/* —> style donné au container des testimonials. */
+
+.testimonial img {
+width: 80px;
+height: 80px;
+border-radius: 50%;
+margin-bottom: 15px;
+}
+/* —>  style et placement de la photo du testtimonial , radius de 50% pour faire l’image de rond */
+
+.testimonial p {
+font-style: italic;
+margin-bottom: 10px;
+}
+/* —> style du p de la section , le margin bottom est pour la mise en page dans le container  */
+
+
+.testimonial strong {
+color: #6b5de4;
+}
+.testimonial_text {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+/* —> mise en page du texte dans le container  */
+
+/* Blog section fixes */
+#Blog {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 20px 15px;
+background-color: #f8f8f8;
+}
+
+.blog_text {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.blog_text h2 {
+
+ color: #695AA6;
+}
+
+/* —> style font et mise en page de la section blog  */
+
+.blog_grid {
+display: flex;
+flex-direction: column;
+gap: 30px;
+max-width: 800px;
+margin: 0 auto;
+}
+/* —> mise en page des deux sections dans le parent  */
+
+.blog_item {
+display: flex;
+flex-direction: column;
+background: white;
+border: none;
+box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+border-radius: 8px;
+overflow: hidden;
+}
+/* —> mise en page du container parent du blog grid  */
+
+.blog_options_img {
+width: 100%;
+height: 200px;
+object-fit: cover;
+}
+/* —> en mettant la width 100% et l’objectif fit cover la Photo prend l’entièreté de la zone en adaptant le contenu dedans  */
+.blog_content {
+padding: 20px;
+}
+
+
+/* Contact section */
+.Contact {
+padding: 20px 15px;
+display: flex;
+flex-direction: column;
+align-items: center; 
+}
+
+.contact_navbar {
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+margin-bottom: 20px;
+margin-right: 40px;
+font-size:12px;
+width: 100%;
+border-bottom: 1px solid rgba(0, 0, 0, 0.042); 
+
+}
+/* section contact le border bottom est un style pour la mise en page. */
+
+.contact_navbar h2 {
+color: #6b5de4;
+margin-bottom: 10px;
+}
+
+.contact_navbar ul {
+display: flex;
+flex-direction: row;
+margin:0;
+list-style: none;
+gap: 10px;
+align-items: flex-end;
+}
+/* —> style mise en page des éléments de la section parent nav bar  */
+
+
+.contact_textarea {
+width: 100%; 
+display: flex;
+justify-content: center; 
+}
+
+.contact_textarea textarea {
+width: 60%;
+height: 120px;
+padding: 10px;
+border: 1px solid #ddd;
+border-radius: 10px;
+resize: none;
+margin-bottom: 15px;
+}
+
+.contact_button {
+background-color: #ffffff00;
+color: #6b5de4;
+border: 1px solid #6b5de4;
+padding: 10px;
+border-radius: 10px;
+font-size: 14px;
+cursor: pointer;
+width: 150px;
+margin: 0 auto; 
+display: block; 
+}
+—> font style et mise en page du bouton de la section 
+
+/* Le display block est utilisé dans ce cas car il est en fin de page et ne dépend pas du reste , cela aide à garder sa mise en page. */
+
+.contact_text {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 100%; 
+}
+
+#Contact h1 {
+    color: #6b5de4;
+    
+}
+
+/* —> mise en page text a cote de nav bar  */
+
+/* Footer */
+
+footer {
+    padding: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.042); 
+}
+
+.footer-content {
+    display: flex;
+}
+
+.copyright {
+    font-size: 10px;
+    color: #666;
+}
+/* —> mise en page et font style de la section footer  */
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-icons img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+/* —> mise en page et font style de l’enfant img dans la section  */
+.social-icons img:hover {
+    opacity: 1;
+}
+/* —> effet avec le hover les img changent de couleur  */
+
+
+
+/* Media Screen */
+
+
+@media screen and (min-width: 750px) {
+    
+#Portfolio, #Services, #Aboutme {
+    height: 80vh;
+}
+
+.services_options ul {
+    flex-direction: row;
+
+}
+.services_options img {
+    margin-bottom:5px;
+    width: 70px;
+    height: 70px;
+
+}
+.services_options li {
+    margin: 20px;
+    padding:20px;
+    height: 100px;
+    
+}
+.services_options .img_option {
+    margin-bottom: 100px;
+}
+/* —> a 750px on adapte la mise en page et la taille du service option en augmentant la taille  */
+/* De la section et en mettant la section en row plutôt que colonne */
+
+#Nav_bar {
+    width: 98%;
+    height: 100px;   
+}
+#Menu {
+    gap:4em;
+    font-size: 14px;
+}
+/* —> agrandisement de la taille de la nav bar  pour qu’elle reste proportionnelle à mon image  */
+
+.portfolio_pictures ul {
+    
+    flex-direction: row;        
+}
+.portfolio_pictures img {
+
+    width: 250px;
+    height: 250px;
+    margin:30px;
+    justify-content: center;
+    align-items: center;
+
+}
+/* —> a 750 px on agrandit une première fois les photos de la section portfolio et on les mets dans une mise en page de row  */
+
+.pricing_options {
+    display: flex;
+    flex-direction: row;
+}
+
+.pricing_options1, .pricing_options2, .pricing_options3 {
+    padding: 20px;   
+    font-size: 14px;
+    margin:0;
+
+}
+.pricing_options h2 {
+        font-size: 3em;
+        margin:0;
+}
+/* —> a 750 px on agrandit la section et la font size  et on les mets dans une mise en page de row  */
+
+.blog_item {
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.blog_options_img {
+    width: 35%;
+    max-width: 350px;;
+    height: 350px;
+}
+
+.blog_content {
+    width: 65%;
+    padding: 20px;
+}
+
+/*-> augmenter la taille du contenu et le mettre en row*/
+
+.testimonial{ 
+flex-direction: row; 
+gap: 30px;
+}
+
+.testimonial_container1, .testimonial_container2, .blog-item { 
+    flex: 1; 
+}
+/*--> placer la sectionntestimonial en row*/
+
+.contact_navbar { 
+flex-direction: row; 
+justify-content: space-between; 
+margin-right: 10px;
+font-size:14px;
+}
+
+/*--> agrandissment de la nav bar dans la section contact*/
+
+.footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright {
+    margin-bottom: 0;
+}
+
+/*agrandissemnt du footer*/
+}
+
+@media screen and (min-width: 1100px) {
+.aboutme_text p {
+    width: 600px;
+}
+.services_options img {
+    margin-bottom:8px;
+    width: 100px;
+    height: 100px;
+}
+.services_options li {
+    
+    margin: 30px;
+    padding:30px;
+    font-size:1em;
+    height: 200px;
+    width: 200px;
+}
+.portfolio_pictures img {
+
+    width: 350px;
+    height: 350px;
+    margin:35px;
+    justify-content: center;
+    align-items: center;
+}
+.pricing_options1, .pricing_options2, .pricing_options3 {
+    padding: 40px;   
+    font-size: 14px;
+    margin:0;
+}
+
+}
+
+/*Meme principe que pour 750px*/
